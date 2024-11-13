@@ -25,15 +25,27 @@ public class SceneManager {
         this.primaryStage = stage;
     }
 
-    public void switchScene(String fxmlFile) {
+    public <T> void switchScene(String fxmlFile, T data) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlFile));
             Parent root = loader.load();
             Scene scene = new Scene(root, 320, 240);
+
+            Object controller = loader.getController();
+            if (controller instanceof ControllerWithData<?>) {
+                ControllerWithData<T> controllerWithData = (ControllerWithData<T>) controller;
+                controllerWithData.setData(data);
+            }
+
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+    public void switchScene(String fxmlFile) {
+        switchScene(fxmlFile, null);
+    }
+
 }

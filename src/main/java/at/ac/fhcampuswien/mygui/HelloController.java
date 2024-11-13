@@ -9,6 +9,6 @@ public class HelloController {
 
     @FXML
     protected void onSwitchSceneClick() {
-        SceneManager.getInstance().switchScene("other-view.fxml");
+        SceneManager.getInstance().switchScene("other-view.fxml", "hello second screen");
     }
 }
