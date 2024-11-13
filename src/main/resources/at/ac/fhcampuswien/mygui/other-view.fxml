@@ -12,4 +12,5 @@
     </padding>
 
     <Label fx:id="otherLabel" text="other scene"/>
+    <Button text="Switch scene" onAction="#onSwitchSceneClick"/>
 </VBox>

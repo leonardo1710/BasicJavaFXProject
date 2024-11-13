@@ -11,4 +11,9 @@ public class OtherController implements ControllerWithData<String> {
     public void setData(String data) {
         otherLabel.setText("passed data: " + data);
     }
+
+    @FXML
+    protected void onSwitchSceneClick(){
+        SceneManager.getInstance().switchScene("hello-view.fxml");
+    }
 }
